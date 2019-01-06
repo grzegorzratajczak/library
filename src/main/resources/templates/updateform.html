@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=" http://thymeleaf.org">
+<head>
+    <title> Book Library </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8080/">Main page</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8080/bookspage">Show Books</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8080/insertBookPage">Add Books</a>
+        </li>
+    </ul>
+    <!-- Navbar text-->
+    <span class="navbar-text"></span>
+</nav>
+<br>
+<h3 align="center">Update book</h3>
+<form action="/updateExistBook" method="post">
+    <input type="hidden" class="form-control" th:value="${book.id}" name="id" id="id">
+    <div class="form-group" style="align-content: center; ">
+        <label for="bookName">Book:</label>
+        <input type="text" class="form-control" th:value="${book.bookName}" name="bookName" id="bookName">
+    </div>
+    <div class="form-group" style="align-content: center; ">
+        <label for="author">Author:</label>
+        <input type="text" class="form-control" th:value="${book.author}" name="author" id="author">
+    </div>
+    <div class="form-group" style="align-content: center; ">
+        <label for="purchaseDate">Author:</label>
+        <input type="date" class="form-control" th:value="${book.purchaseDate}" name="purchaseDate" id="purchaseDate">
+    </div>
+    <button type="submit" class="btn btn-default" style="align-content: center; margin-left: 40%; width: 20%">Submit
+    </button>
+</form>
+</body>
+</html>
