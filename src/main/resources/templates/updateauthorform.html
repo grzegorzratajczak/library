@@ -34,19 +34,15 @@
 </nav>
 <br>
 <h3 align="center">Update book</h3>
-<form action="/updateExistBook" method="post">
-    <input type="hidden" class="form-control" th:value="${book.id}" name="id" id="id">
+<form action="/updateExistAuthor" method="post">
+    <input type="hidden" class="form-control" th:value="${author.id}" name="id" id="id">
     <div class="form-group" style="align-content: center; ">
-        <label for="bookName">Book:</label>
-        <input type="text" class="form-control" th:value="${book.bookName}" name="bookName" id="bookName">
+        <label for="firstName">Name</label>
+        <input type="text" class="form-control" th:value="${author.firstName}" name="firstName" id="firstName">
     </div>
     <div class="form-group" style="align-content: center; ">
-        <label for="author">Author:</label>
-        <input type="text" class="form-control" th:value="${book.author}" name="author" id="author">
-    </div>
-    <div class="form-group" style="align-content: center; ">
-        <label for="purchaseDate">Purchase at:</label>
-        <input type="date" class="form-control" th:value="${book.purchaseDate}" name="purchaseDate" id="purchaseDate">
+        <label for="lastName">LastName:</label>
+        <input type="text" class="form-control" th:value="${author.lastName}" name="lastName" id="lastName">
     </div>
     <button type="submit" class="btn btn-default" style="align-content: center; margin-left: 40%; width: 20%">Submit
     </button>

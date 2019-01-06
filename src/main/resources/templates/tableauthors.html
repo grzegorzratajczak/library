@@ -54,12 +54,12 @@
             <td th:text="${author.id}">id</td>
             <td th:text="${author.firstName}">Author name</td>
             <td th:text="${author.lastName}">Author lastname</td>
-            <!--<td><a th:href="@{'http://localhost:8080/updatebook?id=' + ${book.id}}">-->
-                <!--<span class="glyphicon glyphicon-pencil"></span>-->
-            <!--</a></td>-->
-            <!--<td><a th:href="@{'http://localhost:8080//deletebook?id=' + ${book.id}}">-->
-                <!--<span class="glyphicon glyphicon-trash"></span>-->
-            <!--</a></td>-->
+            <td><a th:href="@{'http://localhost:8080/updateauthor?id=' + ${author.id}}">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a></td>
+            <td><a th:href="@{'http://localhost:8080//deleteauthor?id=' + ${author.id}}">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a></td>
         </tr>
         </tbody>
     </table>

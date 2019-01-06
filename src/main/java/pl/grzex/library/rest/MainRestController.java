@@ -49,10 +49,17 @@ public class MainRestController {
     }
 
     @RequestMapping(value = "/deletebook", method = RequestMethod.GET)
-    public String deleteBooks(@RequestParam(required = true) Long id, Model model) {
+    public String deleteBook(@RequestParam(required = true) Long id, Model model) {
         libraryService.deleteById(id);
         model.addAttribute("books", libraryService.findAllBooks());
         return "table";
+    }
+
+    @RequestMapping(value = "/deleteauthor", method = RequestMethod.GET)
+    public String deleteAuthor(@RequestParam(required = true) Long id, Model model) {
+        authorService.deleteById(id);
+        model.addAttribute("authors", authorService.findAllAuthors());
+        return "tableauthors";
     }
 
     @RequestMapping(value = "/insertBookPage", method = RequestMethod.GET)
@@ -86,6 +93,13 @@ public class MainRestController {
         return "updateform";
     }
 
+    @RequestMapping(value = "/updateauthor", method = RequestMethod.GET)
+    public String updateAuthor(@RequestParam Long id, Model model) {
+        Author author = authorService.findAuthorById(id);
+        model.addAttribute("author", author);
+        return "updateauthorform";
+    }
+
     @RequestMapping(value = "/updateExistBook", method = RequestMethod.POST)
     public String updateBook(@ModelAttribute Book book, Model model) {
         libraryService.saveBook(book);
@@ -94,5 +108,12 @@ public class MainRestController {
         return "table";
     }
 
+    @RequestMapping(value = "/updateExistAuthor", method = RequestMethod.POST)
+    public String updateAuthor(@ModelAttribute Author author, Model model) {
+        authorService.saveAuthor(author);
+        List<Author> authors = authorService.findAllAuthors();
+        model.addAttribute("authors", authors);
+        return "tableauthors";
+    }
 
 }
