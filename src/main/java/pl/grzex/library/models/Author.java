@@ -5,22 +5,19 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Set;
 
-@Entity(name = "books")
+@Entity(name = "authors")
 @Getter
 @Setter
 @ToString
-public class Book {
+public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column(name = "book_name")
-    private String bookName;
-    @ManyToOne
-    private Author author;
-//    @Column(name = "purchase_date")
-    private Date purchaseDate;
-
+    private String firstName;
+    private String lastName;
+    @OneToMany(mappedBy = "author")
+    private Set<Book> books;
 }

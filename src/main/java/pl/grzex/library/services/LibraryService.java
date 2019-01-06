@@ -24,7 +24,7 @@ public class LibraryService {
         return books;
     }
 
-    public Book findBookById(int id){
+    public Book findBookById(Long id){
 
         Book book = bookRepository.findById(id).get();
         return book;
@@ -34,7 +34,7 @@ public class LibraryService {
         bookRepository.save(book);
     }
 
-    public void deleteById(Integer id){
+    public void deleteById(Long id){
         bookRepository.deleteById(id);
     }
 

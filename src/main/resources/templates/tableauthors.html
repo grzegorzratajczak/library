@@ -8,10 +8,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" href="http://localhost:8080/">Main page</a>
@@ -29,9 +33,37 @@
             <a class="nav-link" href="http://localhost:8080/insertAuthorPage">Add Authors</a>
         </li>
     </ul>
+    <!-- Navbar text-->
+    <span class="navbar-text" ></span>
 </nav>
 <br>
-<h2 align="center">Welcome in Library!</h2>
+<h3 align="center">Existing authors</h3>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Author name</th>
+            <th>Author lastname</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="author : ${authors}">
+            <td th:text="${author.id}">id</td>
+            <td th:text="${author.firstName}">Author name</td>
+            <td th:text="${author.lastName}">Author lastname</td>
+            <!--<td><a th:href="@{'http://localhost:8080/updatebook?id=' + ${book.id}}">-->
+                <!--<span class="glyphicon glyphicon-pencil"></span>-->
+            <!--</a></td>-->
+            <!--<td><a th:href="@{'http://localhost:8080//deletebook?id=' + ${book.id}}">-->
+                <!--<span class="glyphicon glyphicon-trash"></span>-->
+            <!--</a></td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
 
